@@ -1,38 +1,263 @@
-.App {
-  text-align: center;
+body {
+  background-image: url("./Images/wallpaperflare.com_wallpaper.webp");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  margin: 0px;
+  font-family: sans-serif;
+  display: block;
+}
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loader {
+  background: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  top: 0px;
+  opacity: 0.9;
+  color: white;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  place-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+}
+
+
+.loaderSpinner {
+  width: 24px;
+  height: 24px;
+  border: 3.5px solid black;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: block;
+  box-sizing: border-box;
+  margin: auto;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+
+
+.redirectionContainer {
+  width: 97%;
+  margin: auto;
+  height: 46px;
+}
+
+.errMsg{
+  font-size: 13px;
+  font-weight: 600;
+  padding-top:5px;
+  color: red;
+  display:none;
+  display: block;
+}
+
+
+.redirectionBtns {
+  background: white;
+  width: fit-content;
+  padding: 8px 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+
+}
+
+.redirectToForm {
+  float: left;
+}
+
+.redirectToDetails {
+  float: right
+}
+
+.arrows {
+  height: 14px;
+  padding-left: 7px;
+  position: relative;
+  top: 2px;
+  width: auto;
+}
+
+.leftArrow {
+  padding-right: 7px;
+  transform: rotate(180deg);
+}
+
+.mainContainer {
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+  padding: 30px 0px;
+  padding-top: 20px;
+}
+
+.formContainer {
+  background: white;
+  box-shadow: 1px 2px 8px black;
+  width: 360px;
+  margin: auto;
+  margin-top: 30px;
+  height: fit-content;
+  position: relative;
+
+  padding: 20px 25px;
+  border-radius: 7px;
+}
+
+.formHeading {
+  width: 100%;
+  font-weight:600;
+}
+
+.formInput,.inputLoader {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid rgba(200, 200, 200);
+  height: 40px;
+  padding-left:5px;
+}
+.inputLoader{
+  padding-top: 6px;
+}
+
+.formInput--radio {
+  height: 30px;
+}
+
+.formHeading {
+  padding-bottom: 7px;
+  padding-top: 13px;
+  font-size: 14px;
+}
+
+.formMainHeading {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 7px;
+}
+
+.formLabel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  place-items: center;
+  justify-items: flex-start;
+  grid-column-gap: 15px;
+}
+
+.formSubmit {
+  margin-top: 23px;
+  width: 100%;
+  height: 40px;
+  background: #5a5684;
+  cursor:pointer;
+  font-size: 17px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.4s;
+}
+
+.formSubmit:hover {
+  color: #5a5684;
+  border: 1px solid #5a5684;
+  background: white;
+  font-weight: bold;
+}
+
+.mainContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mainContainer::-webkit-scrollbar-thumb {
+  background: white;
+  width: 7px;
+}
+
+.detailsContainer {
+  margin: auto;
+  margin-top: 30px;
+  width: 95%;
+  background: white;
+  border-radius: 5px;
+  text-align: center;
+  display: grid;
+  font-size: 13px;
+  height: 100vh;
+  overflow: auto;
+}
+
+.detailsContainer table {
+  height: fit-content;
+  width: 100%;
+  border-spacing: 0px;
+
+}
+
+
+
+.detailsContainer td,
+.detailsContainer th {
+  padding: 8px;
+  width: 11%;
+  word-break: break-all;
+}
+
+.detailsContainer tr:hover {
+  border-bottom: 1px solid rgba(200, 200, 200)
+}
+.detailsContainer tr:nth-child(even){
+  background: rgba(240, 240, 240)
+
+}
+
+
+
+.detailsContainer tr:hover {
+  background-color: #ddd;
+}
+
+.detailsContainer th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #5a5684;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@media(max-width:1500px) {
+  .detailsContainer table {
+      width: 1600px;
+
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media(max-width:480px) {
+
+  .detailsContainer,
+  .formContainer {
+      width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .redirectionContainer{
+      width:91%;
+  }
+  .loader {
+      font-size: 25px;
   }
 }
