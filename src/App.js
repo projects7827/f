@@ -381,8 +381,8 @@ function App() {
         <div className="formHeading">Gender</div>
         <div className="inputContainer">
           <label for="male" className="formLabel">
-            <input ref={el => ref3.current["male"] = el} type="radio" name="gender" id="male" className="formInput formInput--radio" checked />Male
-          </label>
+            <input ref={el => ref3.current["male"] = el} type="radio" name="gender" id="male" className="formInput formInput--radio" defaultChecked />Male
+          </label >
           <label for="female" className="formLabel">
             <input ref={el => ref3.current["female"] = el} type="radio" name="gender" id="female" className="formInput formInput--radio" />Female
           </label>
