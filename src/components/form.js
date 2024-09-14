@@ -8,7 +8,7 @@ const Form = ({ form_type, toggle_form, prepopulated_data }) => {
     let [state, setState] = useState({ 'loader': false, form_type, show_error_popup: false, error_popup_message: "" })
     let ref = useRef({})
     let ref2 = useRef({})
-    let baseURL = 'http://localhost:2000'
+    let baseURL = 'https://ptmainserver.netlify.app/.netlify/functions/api'
 
     function showErr(showError, message = "", id = "") { //showing validiation error message
         if (showError === true) {
@@ -26,6 +26,7 @@ const Form = ({ form_type, toggle_form, prepopulated_data }) => {
 
 
     function handle_error(err) {
+        console.log(err)
         if (err.status === 403) {
             setCookie("UT", "")
             toggle_form(true, "login")

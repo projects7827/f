@@ -7,7 +7,7 @@ import axios from 'axios'
 const Details = () => {
     const [state, setState] = useState({ "show_form": false, "show_loader": false, "data": [], form_type: "add_data", selected_data: {} })
     // let baseURL = 'https://ptserver.netlify.app/.netlify/functions/api/'
-    let baseURL = 'http://localhost:2000'
+    let baseURL = 'https://ptmainserver.netlify.app/.netlify/functions/api'
 
     function showLoader(show) {
         setState((state) => ({ ...state, "show_loader": show }))
@@ -15,6 +15,7 @@ const Details = () => {
 
     useEffect(() => {
         get_data();
+
     }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
     function handle_error(err) {
